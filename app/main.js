@@ -10,7 +10,8 @@ requirejs.config({
         'owl-carousel': '../libs/owl.carousel/dist/owl.carousel',
         'match-height': '../libs/matchHeight/dist/jquery.matchHeight',
         'fancybox': '../libs/fancybox/source/jquery.fancybox.pack',
-        'fancybox-media': '../libs/fancybox/source/helpers/jquery.fancybox-media'
+        'fancybox-media': '../libs/fancybox/source/helpers/jquery.fancybox-media',
+        'authenticate': '../services/authentication'
     },
   shim: {
     bootstrap: {
@@ -20,7 +21,7 @@ requirejs.config({
     }
 });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap'],  function (system, app, viewLocator) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap', 'authenticate'],  function (system, app, viewLocator, bootstrap, auth) {
 
     system.debug(true);
 
@@ -39,6 +40,10 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap'],
         viewLocator.useConvention();
 
         // Show the app by setting the root view model for our application with a transition.
-        app.setRoot('viewmodels/shell');
+        //app.setRoot('viewmodels/shell');
+        auth.init().then(function(data) {
+            // When successfully authenticate, set the root to shell 
+            app.setRoot('viewmodels/shell');
+        });
     });
 });

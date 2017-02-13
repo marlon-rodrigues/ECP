@@ -1,4 +1,16 @@
 define(['plugins/router', "durandal/app", 'match-height'], function (router, app) {
+
+    /*router.guardRoute = function(routeInfo, params, instance){ console.log('param:' + params.fragment);
+        var insecureRoutes = ['login', 'terms','signup','password'];
+        //if ($.inArray(params.fragment, insecureRoutes) || mymodule.isAuthenticated()) {
+        if ($.inArray(params.fragment, insecureRoutes)) {
+            return true;
+        } else {
+            //return 'login/' + params.fragment;
+            return '/login';
+        }
+    };*/
+
     return {
         router: router,
 
@@ -7,7 +19,8 @@ define(['plugins/router', "durandal/app", 'match-height'], function (router, app
             	{ route: ['', 'home'], moduleId: 'viewmodels/index', title: "Home", nav: true },
             	{ route: 'tasks', moduleId: 'viewmodels/tasks', title: "Tasks", nav: true },
             	{ route: 'documents', moduleId: 'viewmodels/documents', title: "Documents", nav: true },
-            	{ route: 'contacts', moduleId: 'viewmodels/contacts', title: "Contacts", nav: true }
+            	{ route: 'contacts', moduleId: 'viewmodels/contacts', title: "Contacts", nav: true },
+                { route: 'login', moduleId: 'viewmodels/login', title: "Login", nav: true },
             ]).buildNavigationModel();
             
             //return router.activate({ pushState: true }); //use pushState to avoid the hash(#) in the URL

@@ -10,8 +10,8 @@ var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var mainBowerFiles = require('gulp-main-bower-files');
 var concat = require('gulp-concat');
-var gnf = require('gulp-npm-files');
-var mainNpmFiles = require('gulp-main-npm-files');
+//var gnf = require('gulp-npm-files');
+//var mainNpmFiles = require('gulp-main-npm-files');
 
 const $ = gulpLoadPlugins();
 
@@ -20,7 +20,7 @@ const $ = gulpLoadPlugins();
 gulp.task('build-js', function() {
     return gulp.src(paths.source_js)
         .pipe(plumber())
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(changed(paths.output, { extension: '.js' }))
         .pipe(gulp.dest(paths.output));
 });
@@ -70,11 +70,12 @@ gulp.task('build-bower', function(){
         .pipe(gulp.dest(paths.output + '/libs'));
 });
 
-gulp.task('build-npm-libs', function() {
+// If we decide to use npm instead of bower we have the call ready
+/*gulp.task('build-npm-libs', function() {
     return gulp.src(gnf(), {base:'./node_modules'})
     //return gulp.src(mainNpmFiles())
         .pipe(gulp.dest(paths.output + '/libs'));
-});
+});*/
 
 // this task calls the clean task (located
 // in ./clean.js), then runs the build-system
