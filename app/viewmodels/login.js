@@ -1,4 +1,4 @@
-define(['knockout', 'durandal/system', 'durandal/app', 'authenticate'], function (ko, system, app, auth) {
+define(['knockout', 'durandal/system', 'durandal/app', 'authenticate', 'sweetalert'], function (ko, system, app, auth, swal) {
 	var username = ko.observable();
    	var password = ko.observable();
 
@@ -10,7 +10,7 @@ define(['knockout', 'durandal/system', 'durandal/app', 'authenticate'], function
          	// and here will take of the error 
          	auth.login(username(), password()).fail(function(err) {
              	// notify user about the error (e.g invalid credentials)
-             	console.log(auth.callError());
+             	swal("Login Failed!", auth.callError(), "error");
          	});
       	}
    	};
