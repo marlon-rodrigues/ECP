@@ -29,14 +29,22 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'moment'],function(
                username: username,
                password: password
             }
-        }).then(function(token){
+        }).then(function(token){ 
             // TODO - Verify object return before validating user
+            // FOR now we have a hard coded users
+            var tempUsername = "marlon.rodrigues";
+            var tempPass = "123456";
 
-            // on success, stored token and set root to shell
-            storeToken(token);
+            if(username == tempUsername && password == tempPass) {
+                // on success, stored token and set root to shell
+              storeToken(token);
 
-            // Set root to shell
-            app.setRoot('viewmodels/shell');
+                // Set root to shell
+              app.setRoot('viewmodels/shell');
+            } else {
+              resetToken();
+              self.AUTH_ERR = "Your credentials are incorrect. Please, try again."; 
+            }
         }, function (jqXHR, textStatus, errorThrown) {
             resetToken();
             self.AUTH_ERR = 'An error has occured, please refresh the page and try again in a little while. If the error persists, please contact the system administrator. (' + textStatus + ':' + errorThrown + ')'; 
