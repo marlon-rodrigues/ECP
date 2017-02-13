@@ -1,15 +1,15 @@
-define(['plugins/router', "durandal/app", 'match-height'], function (router, app) {
+define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], function (router, app, auth) {
 
-    /*router.guardRoute = function(routeInfo, params, instance){ console.log('param:' + params.fragment);
-        var insecureRoutes = ['login', 'terms','signup','password'];
-        //if ($.inArray(params.fragment, insecureRoutes) || mymodule.isAuthenticated()) {
-        if ($.inArray(params.fragment, insecureRoutes)) {
+    router.guardRoute = function(routeInfo, params, instance){ 
+            //array with pages that can be accessed without credentials
+        var insecureRoutes = []; 
+        //if ($.inArray(params.fragment, insecureRoutes) || auth.isAuthenticated()) {
+        if ($.inArray(params.fragment, insecureRoutes) >= 0 || auth.isAuthenticated()) {
             return true;
         } else {
-            //return 'login/' + params.fragment;
-            return '/login';
+            app.setRoot('viewmodels/login');
         }
-    };*/
+    };
 
     return {
         router: router,
@@ -19,8 +19,7 @@ define(['plugins/router', "durandal/app", 'match-height'], function (router, app
             	{ route: ['', 'home'], moduleId: 'viewmodels/index', title: "Home", nav: true },
             	{ route: 'tasks', moduleId: 'viewmodels/tasks', title: "Tasks", nav: true },
             	{ route: 'documents', moduleId: 'viewmodels/documents', title: "Documents", nav: true },
-            	{ route: 'contacts', moduleId: 'viewmodels/contacts', title: "Contacts", nav: true },
-                { route: 'login', moduleId: 'viewmodels/login', title: "Login", nav: true },
+            	{ route: 'contacts', moduleId: 'viewmodels/contacts', title: "Contacts", nav: true }
             ]).buildNavigationModel();
             
             //return router.activate({ pushState: true }); //use pushState to avoid the hash(#) in the URL
