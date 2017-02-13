@@ -47,7 +47,3 @@ You can choose between TypeScript or JavaScript.
 yo durandal2:viewmodel {name} {transpiler} (--transient)
 ```
 > **Note:** Passing --transient will create a viewmodel with a transient lifecycle
-
-## License
-
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
