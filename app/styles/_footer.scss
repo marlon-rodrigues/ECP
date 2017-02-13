@@ -1,0 +1,42 @@
+/****** FOOTER STYLES *******/
+footer#footer {
+  /* Sticky footer, see html and body declarations as well */
+  @media (min-width:$break-small) {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer */
+    height: 70px;
+    margin-bottom:50px;
+  }
+  ul {
+    border-bottom:1px solid $main;
+    padding-bottom:15px;
+    text-transform: uppercase;
+    li {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size:17px;
+      font-weight: 700;
+      margin-right:15px;
+      a {
+        color:$primary-light;
+        display:inline-block;
+        transition:color .3s ease-in;
+        &.home {
+          text-indent:-9999px;
+          display: inline-block;
+          padding:0;
+          width:20px;
+          background-repeat:no-repeat;
+          background-image:url(../images/homeRed.svg);
+          background-position:0 2px;
+        }
+        &:hover {
+          color:$main;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+/****** END FOOTER STYLES *******/

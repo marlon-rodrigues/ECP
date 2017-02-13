@@ -1,0 +1,23 @@
+/****** GENERIC SIDEBAR STYLES *******/
+aside.sidebar {
+  margin-top:50px;
+}
+section.testimonials {
+  footer {
+    margin-top:15px;
+  }
+  cite {
+    strong {
+      font-style:normal;
+    }
+  }
+}
+/* Home sidebar has more spacing between section */
+body.home {
+  aside.sidebar {
+    section {
+      margin-bottom:75px;
+    }
+  }
+}
+/****** END GENERIC SIDEBAR STYLES *******/

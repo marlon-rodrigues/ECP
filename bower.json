@@ -1,0 +1,58 @@
+{
+  "name": "ecp",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "^3.3.1",
+    "owl.carousel": "^2.2.0",
+    "fancybox": "^2.1.6",
+    "matchHeight": "matchheight#^0.7.0",
+    "knockout": "^3.4.1",
+    "Durandal": "durandal#^2.2.0",
+    "font-awesome": "^4.7.0"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    },
+    "Durandal": {
+      "main": [
+        "js/*.js",
+        "js/plugins/*.js",
+        "js/transitions/*.js"
+      ]
+    },
+    "owl.carousel": {
+      "main": [
+        "dist/owl.carousel.js",
+        "dist/assets/owl.carousel.css",
+        "dist/assets/owl.theme.default.css"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "less/font-awesome.less",
+        "scss/font-awesome.scss",
+        "css/font-awesome.min.css"
+      ]
+    },
+    "fancybox": {
+      "main": [
+        "source/jquery.fancybox.css",
+        "source/jquery.fancybox.js",
+        "source/blank.gif",
+        "source/fancybox_loading.gif",
+        "source/fancybox_loading@2x.gif",
+        "source/fancybox_overlay.png",
+        "source/fancybox_sprite.png",
+        "source/fancybox_sprite@2x.png",
+        "source/jquery.fancybox.pack.js",
+        "source/helpers/jquery.fancybox-media.js"
+      ]
+    }
+  }
+}
