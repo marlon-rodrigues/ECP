@@ -49,8 +49,13 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'moment'],function(
         return checkAuthenticate();
      },
      logout: function() {
-        localStorage.removeItem(ECP_USER_TOKEN);
-        localStorage.removeItem(ECP_TOKEN_EXP);
+          // reset token
+        resetToken(); 
+
+          // refresh window - which makes the app start from scratch
+          // and since there is no token, it will take the user back 
+          // to the login page 
+        window.location = '';
      }
   };
 
@@ -80,10 +85,10 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'moment'],function(
     this.USER_AUTHENTICATED = false;
 
     if(localStorage.ECP_USER_TOKEN) {
-      localStorage.removeItem(ECP_USER_TOKEN);
+      localStorage.removeItem('ECP_USER_TOKEN');
     }
     if(localStorage.ECP_TOKEN_EXP) {
-      localStorage.removeItem(ECP_TOKEN_EXP);
+      localStorage.removeItem('ECP_TOKEN_EXP');
     }
   }
 });
