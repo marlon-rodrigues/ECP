@@ -1,0 +1,12 @@
+#login-wrap {
+	background-image:url(images/login.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment:fixed;
+	min-height:100vh;
+	overflow:hidden;
+	h2 {
+		color:$white;
+		text-transform: uppercase;
+	}
+}
