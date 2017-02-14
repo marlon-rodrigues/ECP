@@ -8,7 +8,7 @@ body {
   font-family: 'Roboto', sans-serif;
   color:$main;
   /* Footer height + margin (for sticky footer) */
-  margin-bottom:120px;
+  /*margin-bottom:120px;*/
   font-size:13px;
 }
 h1, h2 {
@@ -26,6 +26,7 @@ h3 {
   font-size:16px;
   font-weight:500;
   margin-bottom:2px;
+  font-family: 'Homenaje', sans-serif;
 }
 p {
   &.tight {
@@ -50,6 +51,19 @@ p {
   color:$highlight;
   font-weight:500;
   font-size:17px;
+}
+.highlight-color {
+  color:$highlight;
+}
+.highlight-button {
+  border:none;
+  outline:0;
+  text-transform: uppercase;
+  text-align: center;
+  background-color:$highlight;
+  color:$white;
+  padding:10px 40px;
+  font-family: 'Homenaje', sans-serif;
 }
 .highlight-alt {
   color:$highlight;
@@ -140,7 +154,7 @@ body.home {
     justify-content:space-between;
   }
 }
-.polar-split-manial {
+.polar-split-manual {
   @media (min-width:$break-small) {
     display: flex;
   }
