@@ -7,6 +7,23 @@
 	overflow:hidden;
 	h2 {
 		color:$white;
-		text-transform: uppercase;
+		background-color:$black;
+		margin-top:0;
+		font-size:55px;
+		padding:10px;
+		text-align:center;
+	}
+	#login-form-wrap {
+		width:100%;
+		background-color:$white;
+		@media (min-width:$break-small) {
+			width:50%;
+			max-width:530px;
+			position: absolute;
+			top:50%;
+			transform:translateY(-50%);
+			left:50%;
+			transform:translateX(-50%);
+		}
 	}
 }
