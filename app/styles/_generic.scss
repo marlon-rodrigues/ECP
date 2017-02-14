@@ -140,6 +140,11 @@ body.home {
     justify-content:space-between;
   }
 }
+.polar-split-manial {
+  @media (min-width:$break-small) {
+    display: flex;
+  }
+}
 #wrapper {
 }
 .roboto {

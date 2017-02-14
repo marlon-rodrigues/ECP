@@ -12,6 +12,7 @@
 		font-size:55px;
 		padding:10px;
 		text-align:center;
+		letter-spacing: 2px;
 	}
 	#login-form-wrap {
 		width:100%;
@@ -24,6 +25,9 @@
 			transform:translateY(-50%);
 			left:50%;
 			transform:translateX(-50%);
+		}
+		form {
+			padding:0 20px;
 		}
 	}
 }
