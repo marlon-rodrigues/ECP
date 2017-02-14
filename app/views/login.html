@@ -1,18 +1,13 @@
 <div id="login-wrap">
 
+	<h2>Log in to the MCEC Portal</h2>
+
 	<div id="login-form-wrap">
-		<h2>Log in to the MCEC Portal</h2>
-		<form data-bind="submit: submitForm" class="polar-split-manual">
-			<div class="input-fields">
-				<h3><strong>Sign In</strong></h3>
-				<p><input placeholder="Enter Email" data-bind="value: username" /></p>
-				<p><input placeholder="Enter Password" data-bind="value: password" /></p>
-				<button type="submit">Submit</button>
-			</div><!-- /.input-fields -->
-			<div class="contact-meta">
-				<h3><strong>Contact Us</strong></h3>
-			</div>
+		<form data-bind="submit: submitForm">
+			<p>Username: <input data-bind="value: username" /></p>
+			<p>Password: <input data-bind="value: password" type="password"/></p>
+			<button type="submit">Login</button>
 		</form>
-	</div><!-- /#login-form-wrap -->
+	</div>
 
 </div><!-- /#login-wrap -->
