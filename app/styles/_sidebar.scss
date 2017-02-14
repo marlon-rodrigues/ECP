@@ -20,4 +20,28 @@ body.home {
     }
   }
 }
+aside.sidebar.sidebar-inner {
+  margin-top:30px;
+}
+.filters {
+  form {
+    padding:10px;
+    background-color:$light-callout;
+    margin-top:5px;
+    .check-it {
+      color:$main;
+      text-transform: uppercase;
+      font-family: 'Homenaje', sans-serif;
+      font-weight:bold;
+      margin-bottom:5px;
+    }
+    label {
+      display: none;
+    }
+    input[type="checkbox"] {
+      margin-right:5px;
+    }
+  }
+}
+
 /****** END GENERIC SIDEBAR STYLES *******/

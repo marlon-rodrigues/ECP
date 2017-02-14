@@ -118,7 +118,7 @@ nav.details {
 /***** Up arrow is dark red only on homepage *****/
 body.home nav.navbar.navbar-default {
   a.active:after {
-    border-bottom:7px solid $primary-light-alt;
+    border-bottom:7px solid $white;
   }
 }
 .navbar-brand {
@@ -143,6 +143,17 @@ body.home {
       background-color:$light-callout;
       padding-bottom:15px;
     }
+  }
+}
+.header-info {
+  h1 {
+    margin-top:10px;
+    margin-bottom:0;
+  }
+  h3 {
+    margin-top:5px;
+    font-size:19px;
+    margin-bottom:15px;
   }
 }
 /****** END HEADER STYLES ******/

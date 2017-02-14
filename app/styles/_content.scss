@@ -80,4 +80,45 @@
     height:auto;
   }
 }
+table {
+  thead {
+    text-transform:uppercase;
+    font-family: 'Homenaje', sans-serif;
+    border-top:1px solid $lighten;
+    border-bottom:1px solid $lighten;
+    th {
+      color:$black;
+      padding-top:5px;
+      padding-bottom:5px;
+    }
+  }
+  tr {
+    border-bottom:1px solid $lighten;
+  }
+  td {
+    vertical-align: top;
+    padding-top:10px;
+    h3 {
+      margin-top:0;
+    }
+    p.big {
+      margin-bottom:3px;
+    }
+  }
+  td.desc {
+    width:70%;
+    p {
+      @media (min-width:$break-small) {
+        max-width:80%;
+      }
+    }
+  }
+  td.more {
+    text-align: center;
+    cursor:pointer;
+    i.fa {
+      color:$white;
+    }
+  }
+}
 /****** END GENERRIC CONTENT AREA STYLES ******/

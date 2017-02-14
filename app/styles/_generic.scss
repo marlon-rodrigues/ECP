@@ -39,6 +39,9 @@ p {
     font-weight:700;
     text-transform: uppercase;
   }
+  &.big {
+    font-size:17px;
+  }
 }
 .bottom-sep {
   border-bottom:1px solid rgba($main, 0.3);
@@ -138,6 +141,27 @@ p {
       }
     }
   }
+}
+.action {
+  color:$action;
+}
+.bg-action {
+  background-color:$action;
+}
+.progress-color {
+  color:$progress-color;
+}
+.completed {
+  color:$completed;
+}
+.bg-completed {
+  background-color:$completed;
+}
+.general {
+  color:$general;
+}
+.bg-general {
+  background-color:$general;
 }
 /* Homepage Overrides for Slider (moved up into header) */
 body.home {
