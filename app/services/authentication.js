@@ -1,8 +1,7 @@
-define(['durandal/system', 'plugins/router', "durandal/app"],function(system, router, app) {
+define(['durandal/system', 'plugins/router', "durandal/app", 'moment'],function(system, router, app, moment) {
 
-  var user_token = '';
-  var error_text = '';
-  var user_authenticated = false;
+  var AUTH_ERR = '';
+  var USER_AUTHENTICATED = false;
 
   return {
      init: function() {
@@ -30,30 +29,74 @@ define(['durandal/system', 'plugins/router', "durandal/app"],function(system, ro
                username: username,
                password: password
             }
-        }).then(function(token){
-            // on success, stored token and set root to shell
-            storeToken(token);
+        }).then(function(token){ 
+            // TODO - Verify object return before validating user
+            // FOR now we have a hard coded users
+            var tempUsername = "marlon.rodrigues";
+            var tempPass = "123456";
 
-            // Set root to shell
-            app.setRoot('viewmodels/shell');
+            if(username == tempUsername && password == tempPass) {
+                // on success, stored token and set root to shell
+              storeToken(token);
+
+                // Set root to shell
+              app.setRoot('viewmodels/shell');
+            } else {
+              resetToken();
+              self.AUTH_ERR = "Your credentials are incorrect. Please, try again."; 
+            }
         }, function (jqXHR, textStatus, errorThrown) {
-          self.error_text = 'An error has occured, please refresh the page and try again in a little while. (' + textStatus + ':' + errorThrown + ')'; 
+            resetToken();
+            self.AUTH_ERR = 'An error has occured, please refresh the page and try again in a little while. If the error persists, please contact the system administrator. (' + textStatus + ':' + errorThrown + ')'; 
         });
      },
      callError: function(){
-        return this.error_text;
+        return this.AUTH_ERR;
      },
      isAuthenticated: function() {
         return checkAuthenticate();
+     },
+     logout: function() {
+          // reset token
+        resetToken(); 
+
+          // refresh window - which makes the app start from scratch
+          // and since there is no token, it will take the user back 
+          // to the login page 
+        window.location = '';
      }
   };
 
-  function checkAuthenticate() {
-    return this.user_authenticated;
+  function checkAuthenticate() {    
+      // check for local storage - if it exits and it's not expired, validate user. 
+      // Otherwise clear storage and forces user to login.
+    if(localStorage.ECP_USER_TOKEN && localStorage.ECP_TOKEN_EXP) {
+      if(moment(localStorage.ECP_TOKEN_EXP) <= moment()) {
+        this.USER_AUTHENTICATED = true;
+      } else {
+        resetToken();
+      }
+    }
+
+    return this.USER_AUTHENTICATED;
   }
 
   function storeToken(token) {
-    this.user_token = token[0]['access_token'];
-    this.user_authenticated = true;
+    this.USER_AUTHENTICATED = true;
+
+    // Store token on local storage
+    localStorage.ECP_USER_TOKEN = token[0]['access_token'];
+    localStorage.ECP_TOKEN_EXP = token[0]['expiration'];
+  }
+
+  function resetToken() {
+    this.USER_AUTHENTICATED = false;
+
+    if(localStorage.ECP_USER_TOKEN) {
+      localStorage.removeItem('ECP_USER_TOKEN');
+    }
+    if(localStorage.ECP_TOKEN_EXP) {
+      localStorage.removeItem('ECP_TOKEN_EXP');
+    }
   }
 });
