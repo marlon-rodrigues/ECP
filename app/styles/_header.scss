@@ -32,7 +32,7 @@ nav.navbar.navbar-default {
   li.notifications {
     a {
       position:relative;
-      display: inline-block;
+      display: block;
       .caret {
         display:none;
       }
@@ -127,13 +127,13 @@ body.home nav.navbar.navbar-default {
   padding:0;
   width:20px;
   background-repeat:no-repeat;
-  background-image:url(../images/homeWhite.svg);
+  background-image:url(images/homeWhite.svg);
   background-position:0 12px;
 }
 /*If Homepage, black house icon. */
 body.home {
   .navbar-brand {
-    background-image:url(../images/homeBlack.svg);
+    background-image:url(images/homeBlack.svg);
   }
 }
 /* Header intro differs from other page intros */
