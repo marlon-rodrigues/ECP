@@ -10,10 +10,6 @@ define(['knockout', 'durandal/system', 'durandal/app'], function (ko, system, ap
     };
 
 
-
     return {
-    	attached: function(view) {
-    		$('.match-me').matchHeight();
-    	}
+    	
     }
-});
