@@ -1,4 +1,16 @@
 /****** GENERIC CONTENT AREA STYLES ******/
+body.home {
+  .header-intro {
+    .col-sm-9 {
+      padding-left:0;
+      margin-left:-15px;
+      padding-right:0;
+    }
+    .col-sm-3 {
+      
+    }
+  }
+}
 .content {
   margin-top:50px;
   margin-bottom:15%;
@@ -72,7 +84,7 @@
       transition:all .3s ease-in;
     }
     &:hover img {
-      transform:scale(1.1);
+      
     }
   }
   img {

@@ -99,8 +99,7 @@ p {
     transition:all .3s ease-in;
   }
   &:hover:before {
-    background-position:5px 12px;
-    box-shadow:1px 1px 10px rgba($main, 0.5);
+    
   }
 }
 .highlight-alt.download-alt {
@@ -116,7 +115,7 @@ p {
     background-position:3px 6px;
   }
   &:hover:before {
-    background-position:3px 7px;
+    
   }
 }
 .slider {
