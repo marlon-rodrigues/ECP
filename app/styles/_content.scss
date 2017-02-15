@@ -209,4 +209,30 @@ table.docs {
 .glasses {
   
 }
+.users-table {
+  table {
+    margin-top:15px;
+    td {
+      font-size:16px;
+      padding-bottom:10px;
+      i {
+        font-size:20px;
+      }
+    }
+    td.clear {
+      text-align: center;
+    }
+  }
+  .add-user {
+    position:relative;
+    &:after {
+      content:"\f234";
+      font-family: FontAwesome;
+      position:absolute;
+      top:2px;
+      left:-17px;
+      font-size:12px;
+    }
+  }
+}
 /****** END GENERRIC CONTENT AREA STYLES ******/
