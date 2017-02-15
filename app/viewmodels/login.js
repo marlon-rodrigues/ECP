@@ -16,7 +16,10 @@ define(['knockout', 'durandal/system', 'durandal/app', 'authenticate', 'sweetale
              	// notify user about the error (e.g invalid credentials)
              	swal("Login Failed!", auth.callError(), "error");
          	});
-      	}
+      	},
+        attached: function(event) {
+            $("body").css("margin-bottom", 0);
+        }
    	};
 });
 

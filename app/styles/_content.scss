@@ -212,6 +212,9 @@ table.docs {
 .users-table {
   table {
     margin-top:15px;
+    tr {
+      cursor: pointer;
+    }
     td {
       font-size:16px;
       padding-bottom:10px;
@@ -232,6 +235,26 @@ table.docs {
       top:2px;
       left:-17px;
       font-size:12px;
+    }
+  }
+}
+.manage-profile {
+  form {
+    input {
+      @media (min-width:$break-small) {
+        max-width:60%;
+      }
+    }
+  }
+}
+ul.notifications {
+  margin-top:30px;
+  li {
+    padding:30px 15px;
+    border-bottom:1px solid $lighten;
+    cursor:pointer;
+    &:nth-child(odd) {
+      background-color:$light-callout;
     }
   }
 }
