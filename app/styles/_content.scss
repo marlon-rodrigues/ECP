@@ -81,6 +81,7 @@
   }
 }
 table {
+  width:100%;
   thead {
     text-transform:uppercase;
     font-family: 'Homenaje', sans-serif;
@@ -118,6 +119,43 @@ table {
     cursor:pointer;
     i.fa {
       color:$white;
+    }
+  }
+  .more-details {
+    display:none;
+    background-color:$light-callout;
+  }
+}
+table.docs {
+  tr {
+    border-bottom:none;
+  }
+  td.desc {
+    color:$highlight;
+    padding-bottom:5px;
+    p {
+      cursor:pointer;
+    }
+  }
+  td.arrow {
+    padding-left:10px;
+    color:$highlight;
+  }
+}
+.grid-item {
+  > h3 {
+    background-color:$primary-light;
+    color:$white;
+    font-size:18px;
+    padding:8px 10px;
+  }
+  .grid-item-content {
+    text-align:center;
+    h3 {
+      font-size:20px;
+    }
+    a {
+      color:$highlight;
     }
   }
 }
