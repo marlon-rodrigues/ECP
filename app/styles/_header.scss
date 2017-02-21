@@ -96,6 +96,9 @@ nav.navbar.navbar-default {
     }
   }
 }
+.seperator {
+  border-top:1px solid $white;
+}
 /* Details Header for home is different from other pages */
 body.home {
   nav.details {
