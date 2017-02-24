@@ -11,10 +11,11 @@ requirejs.config({
         'match-height': 'libs/matchHeight/dist/jquery.matchHeight',
         'fancybox': 'libs/fancybox/source/jquery.fancybox.pack',
         'fancybox-media': 'libs/fancybox/source/helpers/jquery.fancybox-media',
-        'authenticate': 'services/authentication',
         'moment': 'libs/moment/moment',
         'crypto-js': 'libs/crypto-js/crypto-js',
-        'sweetalert': 'libs/sweetalert/dist/sweetalert.min'
+        'sweetalert': 'libs/sweetalert/dist/sweetalert.min',
+        'authenticate': 'services/authentication',
+        'body-params': 'services/define-body-params'
     },
   shim: {
     bootstrap: {

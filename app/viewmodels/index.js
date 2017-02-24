@@ -1,6 +1,7 @@
-define(['knockout', 'durandal/system', 'durandal/app', 'owl-carousel', 'match-height', 'fancybox', 'fancybox-media'], function (ko, system, app) {
+define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-params', 'owl-carousel', 'match-height', 'fancybox', 'fancybox-media'], function (ko, router, system, app, bodyParams) {
 
     var indexVM = {
+        router: router,
         activate: activate,
         attached: viewAttached,
         featuredEvents: ko.observableArray([])
@@ -39,7 +40,10 @@ define(['knockout', 'durandal/system', 'durandal/app', 'owl-carousel', 'match-he
         var self = this;
 		self.featuredEvents = ['<img src="images/imgHomeSlider.jpg" alt="">',
 							   '<img src="images/imgHomeSlider.jpg" alt="">', 
-							   '<img src="images/imgHomeSlider.jpg" alt="">'];                                                        
+							   '<img src="images/imgHomeSlider.jpg" alt="">'];          
+
+            //add body class
+        bodyParams.defineBodyClass('home');                                        
     }
 
     function viewAttached(view) {
@@ -65,7 +69,7 @@ define(['knockout', 'durandal/system', 'durandal/app', 'owl-carousel', 'match-he
 	    or 'match-me' to both elements ****/
 	    $('.match-me').matchHeight();
 
-        $("body").css("margin-bottom", "130px");
+        $("body").css("margin-bottom", "130px");        
     }
 
 });

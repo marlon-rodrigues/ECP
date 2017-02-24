@@ -1,23 +1,26 @@
-define(['knockout', 'durandal/system', 'durandal/app'], function (ko, system, app) {
+define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function (ko, system, app, bodyParams) {
     "use strict";
 
+    var eventsVM = {        
+        activate: activate,        
+        attached: viewAttached,
+    };
 
-  
+    return eventsVM;
 
-    var activate = function () {
+    function activate() {
 
         
     };
 
+    function viewAttached(view) {
+            //add body class
+        bodyParams.defineBodyClass('events');
 
-
-    return {
-    	attached: function(view) {
-    		$(".reveal-more a").click(function(event) {
-    			var idToShow = $(this).attr("data-reveal-id");
-    			$(idToShow).slideDown();
-    			return false;
-    		});
-    	}
+        $(".reveal-more a").click(function(event) {
+            var idToShow = $(this).attr("data-reveal-id");
+            $(idToShow).slideDown();
+            return false;
+        });
     }
 });
