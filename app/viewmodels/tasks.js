@@ -1,20 +1,24 @@
-define(['knockout', 'durandal/system', 'durandal/app'], function (ko, system, app) {
+define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function (ko, system, app, bodyParams) {
     "use strict";
 
+    var tasksVM = {        
+        activate: activate,        
+        attached: viewAttached,
+    };
 
-  
+    return tasksVM;
 
-    var activate = function () {
+    function activate() {
 
         
     };
 
+    function viewAttached(view) {
+            //add body class
+        bodyParams.defineBodyClass('tasks');
 
-    return {
-    	attached: function(view) {
-    		$("td.more").click(function(event) {
-    			$(this).parent().find(".more-details").slideToggle();
-    		});
-    	}
+        $("td.more").click(function(event) {
+            $(this).parent().find(".more-details").slideToggle();
+        });
     }
 });

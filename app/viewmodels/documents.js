@@ -1,22 +1,20 @@
-define(['knockout', 'durandal/system', 'durandal/app'], function (ko, system, app) {
+define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function (ko, system, app, bodyParams) {
     "use strict";
 
-
-  
-
-    var activate = function () {
-
-        
-    };
-
-
-
-    var documentsVM = {
-        
-        activate: activate,
-        
-        
+    var documentsVM = {        
+        activate: activate,        
+        attached: viewAttached,
     };
 
     return documentsVM;
+
+    function activate() {
+
+        
+    };
+
+    function viewAttached(view) {
+            //add body class
+        bodyParams.defineBodyClass('documents');
+    }
 });

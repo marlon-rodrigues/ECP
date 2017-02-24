@@ -1,19 +1,22 @@
-define(['knockout', 'durandal/system', 'durandal/app'], function (ko, system, app) {
+define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function (ko, system, app, bodyParams) {
     "use strict";
 
+    var contactsVM = {        
+        activate: activate,        
+        attached: viewAttached,
+    };
 
-  
+    return contactsVM;
 
-    var activate = function () {
+    function activate() {
 
         
     };
 
+    function viewAttached(view) {
+            //add body class
+        bodyParams.defineBodyClass('contacts');
 
-
-    return {
-    	attached: function(view) {
-    		$('.match-me').matchHeight();
-    	}
+        $('.match-me').matchHeight();
     }
 });
