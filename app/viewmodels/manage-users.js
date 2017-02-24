@@ -9,12 +9,11 @@ define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function 
     return manageUsersVM;
 
     function activate() {
-
-        
+            //add body class
+        bodyParams.defineBodyClass('manage-users');        
     };
 
     function viewAttached(view) {
-            //add body class
-        bodyParams.defineBodyClass('manage-users');
+            
     }
 });

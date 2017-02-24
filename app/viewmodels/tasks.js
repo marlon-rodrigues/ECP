@@ -9,14 +9,11 @@ define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function 
     return tasksVM;
 
     function activate() {
-
-        
+            //add body class
+        bodyParams.defineBodyClass('tasks');        
     };
 
     function viewAttached(view) {
-            //add body class
-        bodyParams.defineBodyClass('tasks');
-
         $("td.more").click(function(event) {
             $(this).parent().find(".more-details").slideToggle();
         });

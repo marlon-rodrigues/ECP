@@ -40,7 +40,10 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
         var self = this;
 		self.featuredEvents = ['<img src="images/imgHomeSlider.jpg" alt="">',
 							   '<img src="images/imgHomeSlider.jpg" alt="">', 
-							   '<img src="images/imgHomeSlider.jpg" alt="">'];                                                        
+							   '<img src="images/imgHomeSlider.jpg" alt="">'];          
+
+            //add body class
+        bodyParams.defineBodyClass('home');                                        
     }
 
     function viewAttached(view) {
@@ -66,10 +69,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 	    or 'match-me' to both elements ****/
 	    $('.match-me').matchHeight();
 
-        $("body").css("margin-bottom", "130px");
-
-            //add body class
-        bodyParams.defineBodyClass('home');
+        $("body").css("margin-bottom", "130px");        
     }
 
 });

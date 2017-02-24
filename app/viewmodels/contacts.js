@@ -9,14 +9,11 @@ define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function 
     return contactsVM;
 
     function activate() {
-
-        
+            //add body class
+        bodyParams.defineBodyClass('contacts');        
     };
 
     function viewAttached(view) {
-            //add body class
-        bodyParams.defineBodyClass('contacts');
-
         $('.match-me').matchHeight();
     }
 });

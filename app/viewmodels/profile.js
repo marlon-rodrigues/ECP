@@ -9,12 +9,11 @@ define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function 
     return profileVM;
 
     function activate() {
-
-        
+            //add body class
+        bodyParams.defineBodyClass('profile');        
     };
 
     function viewAttached(view) {
-            //add body class
-        bodyParams.defineBodyClass('profile');
+           
     }
 });

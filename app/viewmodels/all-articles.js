@@ -9,12 +9,11 @@ define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function 
     return allArticlesVM;
 
     function activate() {
-
-        
+            //add body class
+        bodyParams.defineBodyClass('all-articles');        
     };
 
     function viewAttached(view) {
-            //add body class
-        bodyParams.defineBodyClass('all-articles');
+            
     }
 });

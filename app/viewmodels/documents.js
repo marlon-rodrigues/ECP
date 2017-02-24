@@ -9,12 +9,11 @@ define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function 
     return documentsVM;
 
     function activate() {
-
-        
+            //add body class
+        bodyParams.defineBodyClass('documents');
     };
 
     function viewAttached(view) {
-            //add body class
-        bodyParams.defineBodyClass('documents');
+        
     }
 });

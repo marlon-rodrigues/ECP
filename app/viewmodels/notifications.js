@@ -9,12 +9,11 @@ define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function 
     return notificationsVM;
 
     function activate() {
-
-        
+            //add body class
+        bodyParams.defineBodyClass('notifications');        
     };
 
     function viewAttached(view) {
-            //add body class
-        bodyParams.defineBodyClass('notifications');
+            
     }
 });
