@@ -46,8 +46,6 @@ define(['plugins/router', "durandal/app", 'authenticate', 'body-params', 'match-
 		    /**** When heights need to match and flexbox not an option, add a class
 		    or 'match-me' to both elements ****/
 		    $('.match-me').matchHeight();
-            
-            console.log("Logging is working."); 
 		},
 
         logout: function() {
