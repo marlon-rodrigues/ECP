@@ -41,6 +41,12 @@ define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], funct
 		    $('.dropdown').on('hide.bs.dropdown', function() {
 		        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
 		    });
+
+            $('.navbar-header a, .primary.nav.navbar-nav a').click(function(event) {
+                var $this = $(this);
+                $('.navbar-header a, .nav.navbar-nav a').removeClass('active');
+                $this.addClass('active');
+            });
 		    /***** End bootstrap sliding dropdowns *****/
 
 		    /**** When heights need to match and flexbox not an option, add a class

@@ -7,7 +7,7 @@ define(['durandal/system', 'plugins/router', "durandal/app"],function(system, ro
         $('body').removeClass();
           //add the specific class
         $('body').addClass(bodyClass);        
-     }     
+     }   
   };
 
 });
