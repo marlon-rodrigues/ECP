@@ -1,4 +1,4 @@
-define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], function (router, app, auth) {
+define(['plugins/router', "durandal/app", 'authenticate', 'body-params', 'match-height'], function (router, app, auth, bodyParams) {
 
     router.guardRoute = function(routeInfo, params, instance){ 
             //array with pages that can be accessed without credentials
@@ -41,20 +41,13 @@ define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], funct
 		    $('.dropdown').on('hide.bs.dropdown', function() {
 		        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
 		    });
-
-            $('.navbar-header a, .primary.nav.navbar-nav a').click(function(event) {
-                var $this = $(this);
-                $('.navbar-header a, .nav.navbar-nav a').removeClass('active');
-                $this.addClass('active');
-            });
 		    /***** End bootstrap sliding dropdowns *****/
 
 		    /**** When heights need to match and flexbox not an option, add a class
 		    or 'match-me' to both elements ****/
 		    $('.match-me').matchHeight();
-
             
-            console.log("Logging is working.");
+            console.log("Logging is working."); 
 		},
 
         logout: function() {

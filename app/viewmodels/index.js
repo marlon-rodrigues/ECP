@@ -43,7 +43,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 							   '<img src="images/imgHomeSlider.jpg" alt="">'];          
 
             //add body class
-        bodyParams.defineBodyClass('home');                                        
+        bodyParams.defineBodyClass('home');           
     }
 
     function viewAttached(view) {
@@ -69,7 +69,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 	    or 'match-me' to both elements ****/
 	    $('.match-me').matchHeight();
 
-        $("body").css("margin-bottom", "130px");        
+        $("body").css("margin-bottom", "130px");    
     }
 
 });

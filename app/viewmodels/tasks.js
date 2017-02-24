@@ -10,7 +10,7 @@ define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function 
 
     function activate() {
             //add body class
-        bodyParams.defineBodyClass('tasks');        
+        bodyParams.defineBodyClass('tasks');    
     };
 
     function viewAttached(view) {
