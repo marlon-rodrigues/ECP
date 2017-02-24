@@ -229,7 +229,7 @@ table.docs {
         font-size:20px;
       }
     }
-    td.clear {
+    td.clear, th.clear {
       text-align: center;
     }
   }
@@ -262,6 +262,13 @@ ul.notifications {
     cursor:pointer;
     &:nth-child(odd) {
       background-color:$light-callout;
+    }
+  }
+}
+body.events {
+  .navbar.navbar-default {
+    > .container {
+      visibility: hidden;
     }
   }
 }
