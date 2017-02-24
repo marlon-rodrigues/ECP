@@ -23,7 +23,10 @@ define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], funct
                 { route: 'events', moduleId: 'viewmodels/events', title: "Events", nav: true },
                 { route: 'profile', moduleId: 'viewmodels/profile', title: "Profile", nav: true },
                 { route: 'manage-users', moduleId: 'viewmodels/manage-users', title: "Manage Users", nav: true },
-                { route: 'notifications', moduleId: 'viewmodels/notifications', title: "Notifications", nav: true }
+                { route: 'notifications', moduleId: 'viewmodels/notifications', title: "Notifications", nav: true },
+                { route: 'all-articles', moduleId: 'viewmodels/all-articles', title: "All Articles", nav: true },
+                { route: 'all-images', moduleId: 'viewmodels/all-images', title: "All Images", nav: true },
+                { route: 'all-videos', moduleId: 'viewmodels/all-videos', title: "All Videos", nav: true }
             ]).buildNavigationModel();
             
             //return router.activate({ pushState: true }); //use pushState to avoid the hash(#) in the URL
