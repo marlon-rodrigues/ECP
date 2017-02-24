@@ -10,13 +10,11 @@ define(['knockout', 'durandal/system', 'durandal/app'], function (ko, system, ap
     };
 
 
-
-    var tasksVM = {
-        
-        activate: activate,
-        
-        
-    };
-
-    return tasksVM;
+    return {
+    	attached: function(view) {
+    		$("td.more").click(function(event) {
+    			$(this).parent().find(".more-details").slideToggle();
+    		});
+    	}
+    }
 });

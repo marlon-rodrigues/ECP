@@ -32,7 +32,7 @@ nav.navbar.navbar-default {
   li.notifications {
     a {
       position:relative;
-      display: inline-block;
+      display: block;
       .caret {
         display:none;
       }
@@ -96,6 +96,9 @@ nav.navbar.navbar-default {
     }
   }
 }
+.seperator {
+  border-top:1px solid $white;
+}
 /* Details Header for home is different from other pages */
 body.home {
   nav.details {
@@ -118,7 +121,7 @@ nav.details {
 /***** Up arrow is dark red only on homepage *****/
 body.home nav.navbar.navbar-default {
   a.active:after {
-    border-bottom:7px solid $primary-light-alt;
+    border-bottom:7px solid $white;
   }
 }
 .navbar-brand {
@@ -127,13 +130,13 @@ body.home nav.navbar.navbar-default {
   padding:0;
   width:20px;
   background-repeat:no-repeat;
-  background-image:url(../images/homeWhite.svg);
+  background-image:url(images/homeWhite.svg);
   background-position:0 12px;
 }
 /*If Homepage, black house icon. */
 body.home {
   .navbar-brand {
-    background-image:url(../images/homeBlack.svg);
+    background-image:url(images/homeBlack.svg);
   }
 }
 /* Header intro differs from other page intros */
@@ -143,6 +146,17 @@ body.home {
       background-color:$light-callout;
       padding-bottom:15px;
     }
+  }
+}
+.header-info {
+  h1 {
+    margin-top:10px;
+    margin-bottom:0;
+  }
+  h3 {
+    margin-top:5px;
+    font-size:19px;
+    margin-bottom:15px;
   }
 }
 /****** END HEADER STYLES ******/

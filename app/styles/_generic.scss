@@ -26,6 +26,7 @@ h3 {
   font-size:16px;
   font-weight:500;
   margin-bottom:2px;
+  font-family: 'Homenaje', sans-serif;
 }
 p {
   &.tight {
@@ -38,6 +39,25 @@ p {
     font-weight:700;
     text-transform: uppercase;
   }
+  &.big {
+    font-size:17px;
+  }
+}
+div.reveal-more {
+  a {
+    position:relative;
+    font-size:16px;
+    &:after {
+      content:"\f078";
+      font-family:FontAwesome;
+      position:absolute;
+      top:-2px;
+      right:-25px;
+    }
+  }
+}
+.reveal-hidden {
+  display: none;
 }
 .bottom-sep {
   border-bottom:1px solid rgba($main, 0.3);
@@ -50,6 +70,19 @@ p {
   color:$highlight;
   font-weight:500;
   font-size:17px;
+}
+.highlight-color {
+  color:$highlight;
+}
+.highlight-button {
+  border:none;
+  outline:0;
+  text-transform: uppercase;
+  text-align: center;
+  background-color:$highlight;
+  color:$white;
+  padding:10px 40px;
+  font-family: 'Homenaje', sans-serif;
 }
 .highlight-alt {
   color:$highlight;
@@ -75,15 +108,14 @@ p {
     height:35px;
     border-radius:50%;
     background-color:$highlight;
-    background-image:url(../images/buttonDownload.svg);
+    background-image:url(images/buttonDownload.svg);
     background-repeat:no-repeat;
     background-size:25px auto;
     background-position:5px 10px;
     transition:all .3s ease-in;
   }
   &:hover:before {
-    background-position:5px 12px;
-    box-shadow:1px 1px 10px rgba($main, 0.5);
+    
   }
 }
 .highlight-alt.download-alt {
@@ -99,7 +131,7 @@ p {
     background-position:3px 6px;
   }
   &:hover:before {
-    background-position:3px 7px;
+    
   }
 }
 .slider {
@@ -125,6 +157,27 @@ p {
     }
   }
 }
+.action {
+  color:$action;
+}
+.bg-action {
+  background-color:$action;
+}
+.progress-color {
+  color:$progress-color;
+}
+.completed {
+  color:$completed;
+}
+.bg-completed {
+  background-color:$completed;
+}
+.general {
+  color:$general;
+}
+.bg-general {
+  background-color:$general;
+}
 /* Homepage Overrides for Slider (moved up into header) */
 body.home {
   .slider {
@@ -140,7 +193,7 @@ body.home {
     justify-content:space-between;
   }
 }
-.polar-split-manial {
+.polar-split-manual {
   @media (min-width:$break-small) {
     display: flex;
   }

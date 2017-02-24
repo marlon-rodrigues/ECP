@@ -20,4 +20,79 @@ body.home {
     }
   }
 }
+aside.sidebar.sidebar-inner {
+  margin-top:30px;
+}
+.filters {
+  form {
+    padding:10px;
+    background-color:$light-callout;
+    margin-top:5px;
+    .check-it {
+      color:$main;
+      text-transform: uppercase;
+      font-family: 'Homenaje', sans-serif;
+      font-weight:bold;
+      margin-bottom:5px;
+    }
+    label {
+      display: none;
+    }
+    input[type="checkbox"] {
+      margin-right:5px;
+    }
+  }
+  form.search {
+    label {
+      display: block;
+      margin-bottom:0px;
+      font-weight:normal;
+    }
+    input {
+      padding:6px 12px;
+    }
+    input, select {
+      margin-bottom:10px;
+      border:none;
+      outline:0;
+      border-radius:0;
+      display:block;
+      width:100%;
+      font-family: 'Homenaje', sans-serif;
+      font-weight:bold;
+      font-size:16px;
+    }
+    select {
+      font-family: 'Homenaje', sans-serif;
+
+    }
+    .date-box {
+      background-color:$white;
+      padding:5px;
+      font-weight:bold;
+      i {
+        color:$primary-light-alt;
+        font-size:16px;
+        font-weight:normal;
+        padding-left:15px;
+      }
+    }
+    .spacer {
+      line-height:2;
+    }
+  }
+}
+a.clear-filters {
+  display: block;
+  text-align:center;
+  color:$white;
+  background-color:$primary-light-alt;
+  text-decoration: none;
+  transition:all .3s ease-in;
+  margin-top:15px;
+  padding:10px 50px;
+  &:hover {
+    background-color:$primary-light;
+  }
+}
 /****** END GENERIC SIDEBAR STYLES *******/

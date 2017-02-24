@@ -19,7 +19,14 @@ define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], funct
             	{ route: ['', 'home'], moduleId: 'viewmodels/index', title: "Home", nav: true },
             	{ route: 'tasks', moduleId: 'viewmodels/tasks', title: "Tasks", nav: true },
             	{ route: 'documents', moduleId: 'viewmodels/documents', title: "Documents", nav: true },
-            	{ route: 'contacts', moduleId: 'viewmodels/contacts', title: "Contacts", nav: true }
+            	{ route: 'contacts', moduleId: 'viewmodels/contacts', title: "Contacts", nav: true },
+                { route: 'events', moduleId: 'viewmodels/events', title: "Events", nav: true },
+                { route: 'profile', moduleId: 'viewmodels/profile', title: "Profile", nav: true },
+                { route: 'manage-users', moduleId: 'viewmodels/manage-users', title: "Manage Users", nav: true },
+                { route: 'notifications', moduleId: 'viewmodels/notifications', title: "Notifications", nav: true },
+                { route: 'all-articles', moduleId: 'viewmodels/all-articles', title: "All Articles", nav: true },
+                { route: 'all-images', moduleId: 'viewmodels/all-images', title: "All Images", nav: true },
+                { route: 'all-videos', moduleId: 'viewmodels/all-videos', title: "All Videos", nav: true }
             ]).buildNavigationModel();
             
             //return router.activate({ pushState: true }); //use pushState to avoid the hash(#) in the URL
@@ -39,6 +46,9 @@ define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], funct
 		    /**** When heights need to match and flexbox not an option, add a class
 		    or 'match-me' to both elements ****/
 		    $('.match-me').matchHeight();
+
+            
+            console.log("Logging is working.");
 		},
 
         logout: function() {

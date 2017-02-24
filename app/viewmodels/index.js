@@ -64,6 +64,8 @@ define(['knockout', 'durandal/system', 'durandal/app', 'owl-carousel', 'match-he
 		/**** When heights need to match and flexbox not an option, add a class
 	    or 'match-me' to both elements ****/
 	    $('.match-me').matchHeight();
+
+        $("body").css("margin-bottom", "130px");
     }
 
 });

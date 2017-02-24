@@ -13,7 +13,11 @@ define(['knockout', 'durandal/system', 'durandal/app'], function (ko, system, ap
 
     return {
     	attached: function(view) {
-    		$('.match-me').matchHeight();
+    		$(".reveal-more a").click(function(event) {
+    			var idToShow = $(this).attr("data-reveal-id");
+    			$(idToShow).slideDown();
+    			return false;
+    		});
     	}
     }
 });
