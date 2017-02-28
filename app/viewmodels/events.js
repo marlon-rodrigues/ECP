@@ -84,10 +84,11 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
     }
 
     function selectEvent(data, event) {
-        var dfd = $.Deferred();
+        //var dfd = $.Deferred();
         var eventID = data['id'];
 
         appParams.setCurrSelectedEvent(eventID);    
-        dfd.resolve({'redirect': 'home/' + eventID});
+        //dfd.resolve({'redirect': 'home/' + eventID});
+        router.navigate('#home/' + eventID, { replace: true, trigger: true });
     }
 });

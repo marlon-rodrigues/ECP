@@ -17,7 +17,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="primary nav navbar-nav">
-                        <li><a data-bind="attr: { href: '#tasks/currSelectedEvent' }, css: { active: router.activeInstruction().config.title == 'Tasks' }">Tasks</a></li>
+                        <li><a data-bind="attr: { href: router.navigationModel()[2].hash }, css: { active: router.activeInstruction().config.title == 'Tasks' }">Tasks</a></li>
                         <li><a data-bind="attr: { href: router.navigationModel()[3].hash }, css: { active: router.activeInstruction().config.title == 'Documents' }">Documents</a></li>
                         <li><a data-bind="attr: { href: router.navigationModel()[4].hash }, css: { active: router.activeInstruction().config.title == 'Contacts' }">Contacts</a></li>
                         <li><a href="https://ungerboeck.com" target="_blank">Payment</a></li>                                              
