@@ -1,12 +1,15 @@
+<section class="header-info">
+	<h1 class="title">Upcoming Events</h1>
+	<h3>Select the event you want to work with.</h3>
+</section>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="content event-preview-wrap">
 				<div class="row" data-bind="foreach: eventsList">
                     <div class="col-sm-4 grid-item event-preview match-events">
-						<h3 data-bind="text: description"></h3>
+						<h3 data-bind="text: name"></h3>
 						<div class="grid-item-content">
-							<h3>Event Info</h3>
 							<p><strong>Dates: </strong><span data-bind="text: start_date"></span> - <span data-bind="text: end_date"></span></p>
 							<p><strong>Estimated Attendee:</strong> <span data-bind="text: attendees"></span></p>
 							<p><strong>Location:</strong> <span data-bind="text: location"></span></p>
@@ -26,9 +29,8 @@
 				<div class="reveal-more"><a href="#" data-reveal-id="#past-events">Past Events</a></div>
 				<div class="row reveal-hidden" id="past-events" data-bind="foreach: pastEventsList">
 					<div class="col-sm-4 grid-item event-preview match-past-events">
-						<h3 data-bind="text: description"></h3>
+						<h3 data-bind="text: name"></h3>
 						<div class="grid-item-content">
-							<h3>Event Info</h3>
 							<p><strong>Dates: </strong><span data-bind="text: start_date"></span> - <span data-bind="text: end_date"></span></p>
 							<p><strong>Estimated Attendee:</strong> <span data-bind="text: attendees"></span></p>
 							<p><strong>Location:</strong> <span data-bind="text: location"></span></p>

@@ -47,6 +47,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
                 for(var i=0; i<response[0].Events.length; i++) { 
                     var evtObj = {};
                     evtObj.id = response[0].Events[i]['ID'];
+                    evtObj.name = response[0].Events[i]['Name'];
                     evtObj.description = response[0].Events[i]['Description'];
                     evtObj.start_date = response[0].Events[i]['StartDate'];
                     evtObj.end_date = response[0].Events[i]['EndDate'];
