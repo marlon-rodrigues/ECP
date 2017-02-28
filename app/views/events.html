@@ -8,38 +8,18 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="content event-preview-wrap">
-				<div class="row">
-					<div class="col-sm-4 grid-item event-preview">
-						<h3>Peppa Pig Playdate</h3>
+				<div class="row" data-bind="foreach: eventsList">
+                    <div class="col-sm-4 grid-item event-preview">
+						<h3 data-bind="text: description"></h3>
 						<div class="grid-item-content">
 							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
+							<p><strong>Dates: </strong><span data-bind="text: start_date"></span> - <span data-bind="text: end_date"></span></p>
+							<p><strong>Estimated Attendee:</strong> <span data-bind="text: attendees"></span></p>
+							<p><strong>Location:</strong> <span data-bind="text: location"></span></p>
+							<a data-bind="attr: { href: url }" class="clear-filters">View Event</a>
 						</div>
 					</div>
-					<div class="col-sm-4 grid-item event-preview">
-						<h3>St. Petersburg Ballet Theatre - Swan Lake</h3>
-						<div class="grid-item-content">
-							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
-						</div>
-					</div>
-					<div class="col-sm-4 grid-item event-preview">
-						<h3>St. Petersburg Ballet - The Nutcracker</h3>
-						<div class="grid-item-content">
-							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
-						</div>
-					</div>
-				</div><!-- /.row -->
+                </div>
 			</div><!-- /.content -->
 		</div><!-- /.col-sm-12 -->
 	</div><!-- /.row -->
@@ -49,68 +29,19 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="content event-preview-past">
-				<div class="reveal-more"><a href="#" data-reveal-id="#past-events">Past Events - 2016</a></div>
-				<div class="row reveal-hidden" id="past-events">
+				<div class="reveal-more"><a href="#" data-reveal-id="#past-events">Past Events</a></div>
+				<div class="row reveal-hidden" id="past-events" data-bind="foreach: pastEventsList">
 					<div class="col-sm-4 grid-item event-preview">
-						<h3>Peppa Pig Playdate</h3>
+						<h3 data-bind="text: description"></h3>
 						<div class="grid-item-content">
 							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
+							<p><strong>Dates: </strong><span data-bind="text: start_date"></span> - <span data-bind="text: end_date"></span></p>
+							<p><strong>Estimated Attendee:</strong> <span data-bind="text: attendees"></span></p>
+							<p><strong>Location:</strong> <span data-bind="text: location"></span></p>
+							<a data-bind="attr: { href: url }" class="clear-filters">View Event</a>
 						</div>
 					</div>
-					<div class="col-sm-4 grid-item event-preview">
-						<h3>St. Petersburg Ballet Theatre - Swan Lake</h3>
-						<div class="grid-item-content">
-							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
-						</div>
-					</div>
-					<div class="col-sm-4 grid-item event-preview">
-						<h3>St. Petersburg Ballet - The Nutcracker</h3>
-						<div class="grid-item-content">
-							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
-						</div>
-					</div>
-					<div class="col-sm-4 grid-item event-preview">
-						<h3>Peppa Pig Playdate</h3>
-						<div class="grid-item-content">
-							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
-						</div>
-					</div>
-					<div class="col-sm-4 grid-item event-preview">
-						<h3>St. Petersburg Ballet Theatre - Swan Lake</h3>
-						<div class="grid-item-content">
-							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
-						</div>
-					</div>
-					<div class="col-sm-4 grid-item event-preview">
-						<h3>St. Petersburg Ballet - The Nutcracker</h3>
-						<div class="grid-item-content">
-							<h3>Event Info</h3>
-							<p><strong>Dates: </strong>05 January, 2017 - 09 January, 2017</p>
-							<p><strong>Estimated Attendee:</strong> 1,000</p>
-							<p><strong>Location:</strong> Plenary</p>
-							<a href="#" class="clear-filters">View Event</a>
-						</div>
-					</div>
+					
 				</div><!-- /.row -->
 			</div>
 		</div>

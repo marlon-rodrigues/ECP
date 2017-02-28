@@ -15,7 +15,8 @@ requirejs.config({
         'crypto-js': 'libs/crypto-js/crypto-js',
         'sweetalert': 'libs/sweetalert/dist/sweetalert.min',
         'authenticate': 'services/authentication',
-        'body-params': 'services/define-body-params'
+        'body-params': 'services/define-body-params',
+        'app-params': 'services/app-params'
     },
   shim: {
     bootstrap: {

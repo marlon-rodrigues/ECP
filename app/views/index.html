@@ -1,49 +1,51 @@
  <nav class="details">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="header-details">
-                            <h1>Welcome to the MCEC Portal</h1>
-                            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
-                        </div>
-                    </div>
-                    <!-- /.col-* -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="header-details">
+                    <h1 data-bind="text: welcome_title"></h1>
+                    <h4 data-bind="text: welcome_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container -->
-        </nav>
-        <!--/nav.details -->
+            <!-- /.col-* -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</nav>
+<!--/nav.details -->
 
 <!-- HOME HEADER INTRO -->
 <section class="header-intro">
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-sm-push-9 match-me">
-                <h2 class="callout">Vintage Car Show 2017</h2>
-                <p class="callout tight">International Vintage Car Association</p>
-                <p>Attendees: 5,000</p>
+                <h2 class="callout" data-bind="text: event_title"></h2>
+                <p class="callout tight" data-bind="text: event_description"></p>
+                <p>Attendees: <span data-bind="text: event_attendance"></span></p>
                 <ul class="small-list list-unstyled">
-                    <li>In Date: 21 July, 2017</li>
-                    <li>Out Date: 7 August, 2017</li>
+                    <li>In Date: <span data-bind="text: event_start_date"></span></li>
+                    <li>Out Date: <span data-bind="text: event_end_date"></span></li>
                 </ul>
                 <h2 class="callout bottom-sep">Proposal</h2>
-                <div class="polar-split">
-                    <div class="pole">
-                        <p class="tight highlight">Proposal Name</p>
-                        <p class="tight">Version 3</p>
-                        <p class="tight">Last Updated 6.12.2016</p>
-                    </div>
-                    <div class="pole">
-                        <a href="#" class="download highlight-alt">Download</a>
+
+                <div class="proposals-list" data-bind="foreach: eventConfigurationProposals">
+                    <div class="polar-split">
+                        <div class="pole">
+                            <p data-bind="text: name" class="tight highlight"></p>
+                            <p class="tight">Version <span data-bind="text: version"></span></p>
+                            <p class="tight">Last Updated <span data-bind="text: date">6.12.2016<span></p>
+                        </div>
+                        <div class="pole">
+                            <a data-bind="attr: { href: download_url }" class="download highlight-alt">Download</a>
+                        </div>
                     </div>
                 </div>
-                <!-- /.polar-split -->
             </div>
             <!-- /.col-sm-3 -->
             <div class="col-sm-9 col-sm-pull-3">
                 <div class="slider match-me">
-                    <div class="owl-carousel owl-theme" data-bind="foreach: featuredEvents">
+                    <div class="owl-carousel owl-theme" data-bind="foreach: featuredImagesList">
                         <div class="slide" data-bind="html: $data"></div>
                     </div>
                     <!-- /.owl-carousel -->
@@ -62,27 +64,18 @@
         <div class="col-sm-9">
             <section class="content">
                 <div class="article-list">
-                    <h2>MCEC Innovations</h2>
-                    <div class="article row">
-                        <div class="col-sm-3">
-                            <img src="images/imgInnovations1Default.jpg" alt="">
-                        </div>
-                        <div class="col-sm-9">
-                            <h3><strong>Article Name</strong></h3>
-                            <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Pellentesque nec, egestas non nisi. Proin eget tortor risus. Quisque velit nisi, pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Pellentesque nec, egestas non nisi. Proin eget tortor risus. Quisque velit nisi, pretium. Lorem ipsum dolor sit elit. Praesent sapien massa convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus.</p>
-                        </div>
-                    </div>
-                    <!-- /.article -->
-                    <div class="article row">
-                        <div class="col-sm-3">
-                            <img src="images/imgInnovations2.jpg" alt="">
-                        </div>
-                        <div class="col-sm-9">
-                            <h3><strong>Article Name</strong></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien massa convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. </p>
+                    <h2 data-bind="text: articleSectionTitle"></h2>
+                    <div class="article-list-wrapper" data-bind="foreach: eventArticlesList">                        
+                        <div class="article row">
+                            <div class="col-sm-3">
+                                <img data-bind="attr: { src: url }" alt="">
+                            </div>
+                            <div class="col-sm-9">
+                                <h3><strong data-bind="text: title"></strong></h3>
+                                <p data-bind="text: description"></p>
+                            </div>
                         </div>
                     </div>
-                    <!-- /.article -->
                     <div class="row">
                         <p class="pull-right"><a data-bind="attr: { href: router.navigationModel()[8].hash }">View all articles</a></p>
                     </div>

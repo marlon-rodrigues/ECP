@@ -1,4 +1,4 @@
-define(['durandal/system', 'plugins/router', "durandal/app", 'moment'],function(system, router, app, moment) {
+define(['durandal/system', 'plugins/router', "durandal/app", 'app-params', 'moment'],function(system, router, app, appParams, moment) {
 
   var AUTH_ERR = '';
   var USER_AUTHENTICATED = false;
@@ -38,6 +38,10 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'moment'],function(
             if(username == tempUsername && password == tempPass) {
                 // on success, stored token and set root to shell
               storeToken(token);
+
+                //set the logged in username and user code
+              appParams.setLoggedInUser("Marlon");
+              appParams.setLoggedInAccountCode("X0123456");
 
                 // Set root to shell
               app.setRoot('viewmodels/shell');
