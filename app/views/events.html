@@ -9,7 +9,7 @@
 		<div class="col-sm-12">
 			<div class="content event-preview-wrap">
 				<div class="row" data-bind="foreach: eventsList">
-                    <div class="col-sm-4 grid-item event-preview">
+                    <div class="col-sm-4 grid-item event-preview match-events">
 						<h3 data-bind="text: description"></h3>
 						<div class="grid-item-content">
 							<h3>Event Info</h3>
@@ -31,7 +31,7 @@
 			<div class="content event-preview-past">
 				<div class="reveal-more"><a href="#" data-reveal-id="#past-events">Past Events</a></div>
 				<div class="row reveal-hidden" id="past-events" data-bind="foreach: pastEventsList">
-					<div class="col-sm-4 grid-item event-preview">
+					<div class="col-sm-4 grid-item event-preview match-past-events">
 						<h3 data-bind="text: description"></h3>
 						<div class="grid-item-content">
 							<h3>Event Info</h3>

@@ -297,8 +297,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 
          /**** When heights need to match and flexbox not an option, add a class
         or 'match-me' to both elements ****/
-        $('.match-me').matchHeight();   
-		
+        $('.match-me, .match-images, .match-videos').matchHeight();   		
 
         $("body").css("margin-bottom", "130px");    
     }

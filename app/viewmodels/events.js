@@ -80,7 +80,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             return false;
         });
 
-        $('.event-preview').matchHeight();
+        $('.match-events, .match-past-events').matchHeight();
     }
 
     function selectEvent(data, event) {
