@@ -23,7 +23,17 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
         articleSectionTitle: ko.observableArray([]),
 
         eventDocumentsList: ko.observableArray([]),
-        documentsSectionTitle: ko.observableArray([])    
+        documentsSectionTitle: ko.observableArray([]),
+
+        eventImagesList: ko.observableArray([]),
+        imagesSectionTitle: ko.observableArray([]),
+
+        eventVideosList: ko.observableArray([]),
+        videosSectionTitle: ko.observableArray([]),
+
+
+        eventTestimonialsList: ko.observableArray([]),
+        testimonialsSectionTitle: ko.observableArray([])
     };
 
     return indexVM;
@@ -127,9 +137,8 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
         }); 
 
             //get event documents
-        //get event articles
         var getEventDocuments = $.ajax({
-            url  : 'https://www.mockaroo.com/60844db0/download?count=1&key=77af63b0',
+            url  : 'https://www.mockaroo.com/f36f1110/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
                 accoundCode: appParams.getLoggedInAccountCode(),
@@ -137,7 +146,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             }
         }).then(function (response) {
 
-            if(response[0].Articles.length > 0){
+            if(response[0].Documents.length > 0){
                 self.eventDocumentsList = [];
 
                 var documentsObj = {};
@@ -155,11 +164,108 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
                     }
                 }
             } 
+        });
+
+
+            //get event images
+        var getEventImages = $.ajax({
+            url  : 'https://www.mockaroo.com/a26d8580/download?count=1&key=77af63b0',
+            type : 'POST',
+            data : {
+                accoundCode: appParams.getLoggedInAccountCode(),
+                eventID: '123' //TODO - GET CORRECT EVENT ID
+            }
+        }).then(function (response) {
+
+            if(response[0].Images.length > 0){
+                self.eventImagesList = [];
+
+                var imagesObj = {};
+                self.imagesSectionTitle = response[0]['SectionTitle'];
+
+                if(response[0].Images != null) {
+                    for(var i=0; i<response[0].Images.length; i++) {
+                        imagesObj.id = response[0].Images[i]['Id'];
+                        imagesObj.title = response[0].Images[i]['Title'];
+                        imagesObj.description = response[0].Images[i]['Description'];
+                        imagesObj.sequence = response[0].Images[i]['Sequence']; 
+                        imagesObj.url = response[0].Images[i]['Url'];                        
+                        
+                        self.eventImagesList.push(imagesObj);
+                    }
+                }
+            } 
+        }); 
+
+
+            //get event videos
+        var getEventImages = $.ajax({
+            url  : 'https://www.mockaroo.com/3dc58aa0/download?count=1&key=77af63b0',
+            type : 'POST',
+            data : {
+                accoundCode: appParams.getLoggedInAccountCode(),
+                eventID: '123' //TODO - GET CORRECT EVENT ID
+            }
+        }).then(function (response) {
+
+            if(response[0].Videos.length > 0){
+                self.eventVideosList = [];
+
+                var videosObj = {};
+                self.videosSectionTitle = response[0]['SectionTitle'];
+
+                if(response[0].Videos != null) {
+                    for(var i=0; i<response[0].Videos.length; i++) {
+                        videosObj.id = response[0].Videos[i]['Id'];
+                        videosObj.title = response[0].Videos[i]['Title'];
+                        videosObj.description = response[0].Videos[i]['Description'];
+                        videosObj.sequence = response[0].Videos[i]['Sequence']; 
+                        videosObj.url = response[0].Videos[i]['Url'];  
+                        videosObj.thumbnail = response[0].Videos[i]['Thumbnail'];                        
+                        
+                        self.eventVideosList.push(videosObj);
+                    }
+                }
+            } 
+        }); 
+
+
+            //get event testimonials
+        var getEventImages = $.ajax({
+            url  : 'https://www.mockaroo.com/f8564280/download?count=1&key=77af63b0',
+            type : 'POST',
+            data : {
+                accoundCode: appParams.getLoggedInAccountCode(),
+                eventID: '123' //TODO - GET CORRECT EVENT ID
+            }
+        }).then(function (response) {
+
+            if(response[0].Testimonials.length > 0){
+                self.eventTestimonialsList = [];
+
+                var testimonialsObj = {};
+                self.testimonialsSectionTitle = response[0]['SectionTitle'];
+
+                if(response[0].Testimonials != null) {
+                    for(var i=0; i<response[0].Testimonials.length; i++) {
+                        testimonialsObj.id = response[0].Testimonials[i]['Id'];
+                        testimonialsObj.title = response[0].Testimonials[i]['Title'];
+                        testimonialsObj.description = response[0].Testimonials[i]['Description'];
+                        testimonialsObj.sequence = response[0].Testimonials[i]['Sequence']; 
+                        testimonialsObj.name = response[0].Testimonials[i]['SignatureL1']; 
+                        testimonialsObj.position = response[0].Testimonials[i]['SignatureL2']; 
+                        testimonialsObj.company = response[0].Testimonials[i]['SignatureL3']; 
+                        
+                        
+                        self.eventTestimonialsList.push(testimonialsObj);
+                    }
+                }
+            } 
         }); 
 
 
             //call promises
-        return $.when(getEventFeaturedImages, getEventConfigurationDetails, getEventArticles, getEventDocuments).done(function(imagesData, eventData) {
+        return $.when(getEventFeaturedImages, getEventConfigurationDetails, getEventArticles, getEventDocuments, getEventImages).done(function(featuredImagesData, eventData, articlesData, documentsData, imagesData) {
                 //add body class
             bodyParams.defineBodyClass('home');
         });

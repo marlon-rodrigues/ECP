@@ -7,7 +7,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
         attached: viewAttached,
         router: router,
         eventsList: ko.observableArray([]),
-        pastEventsList: ko.observableArray([]),
+        pastEventsList: ko.observableArray([])
     };
 
     return eventsVM;
@@ -53,6 +53,9 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
                     evtObj.attendees = response[0].Events[i]['Attendance'];
                     evtObj.location = response[0].Events[i]['Location'];
                     evtObj.url = '#home/' + response[0].Events[i]['ID'];
+                    evtObj.selectEvent = function(data, event){
+                        selectEvent(data, event);
+                    }
 
                     if(moment(response[0].Events[i]['StartDate']) >= moment()) {
                         self.eventsList.push(evtObj);
@@ -80,8 +83,11 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
         $('.event-preview').matchHeight();
     }
 
-    function selectEvent() {
-        //TODO - APPLY LOGIC TO SELECT EVENT THAT WILL BE USED ON ALL OTHER WINODWS 
-        //TRIGGERED ON EVENT VEIW BUTTON CLICK
+    function selectEvent(data, event) {
+        var dfd = $.Deferred();
+        var eventID = data['id'];
+
+        appParams.setCurrSelectedEvent(eventID);    
+        dfd.resolve({'redirect': 'home/' + eventID});
     }
 });

@@ -54,6 +54,7 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'authenticate', 'bo
             auth.logout();
         },
 
-        loggedInUser: appParams.getLoggedInUser()
+        loggedInUser: appParams.getLoggedInUser(),
+        currSelectedEvent: appParams.getCurrSelectedEvent()
     };
 });
