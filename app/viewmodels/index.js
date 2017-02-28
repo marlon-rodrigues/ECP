@@ -200,7 +200,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 
 
             //get event videos
-        var getEventImages = $.ajax({
+        var getEventVideos = $.ajax({
             url  : 'https://www.mockaroo.com/3dc58aa0/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
@@ -232,7 +232,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 
 
             //get event testimonials
-        var getEventImages = $.ajax({
+        var getEventTestimonials = $.ajax({
             url  : 'https://www.mockaroo.com/f8564280/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
@@ -255,8 +255,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
                         testimonialsObj.sequence = response[0].Testimonials[i]['Sequence']; 
                         testimonialsObj.name = response[0].Testimonials[i]['SignatureL1']; 
                         testimonialsObj.position = response[0].Testimonials[i]['SignatureL2']; 
-                        testimonialsObj.company = response[0].Testimonials[i]['SignatureL3']; 
-                        
+                        testimonialsObj.company = response[0].Testimonials[i]['SignatureL3'];                         
                         
                         self.eventTestimonialsList.push(testimonialsObj);
                     }
@@ -266,7 +265,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 
 
             //call promises
-        return $.when(getEventFeaturedImages, getEventConfigurationDetails, getEventArticles, getEventDocuments, getEventImages).done(function(featuredImagesData, eventData, articlesData, documentsData, imagesData) {
+        return $.when(getEventFeaturedImages, getEventConfigurationDetails, getEventArticles, getEventDocuments, getEventImages, getEventVideos, getEventTestimonials).done(function(featuredImagesData, eventData, articlesData, documentsData, imagesData, videosData, testimonialsData) {
                 //add body class
             bodyParams.defineBodyClass('home');
         });
@@ -298,8 +297,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 
          /**** When heights need to match and flexbox not an option, add a class
         or 'match-me' to both elements ****/
-        $('.match-me').matchHeight();   
-		
+        $('.match-me, .match-images, .match-videos').matchHeight();   		
 
         $("body").css("margin-bottom", "130px");    
     }
