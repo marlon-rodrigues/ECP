@@ -87,7 +87,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
         var eventID = data['id'];
 
         appParams.setSelectedEvent(eventID);    
-        window.location.reload(true);
+        window.location.reload(true); //forces page reload to trigger the event selected tied to the paths
         router.navigate('#home/' + eventID, { replace: true, trigger: true });
         
     }
