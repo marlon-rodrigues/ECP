@@ -1,14 +1,16 @@
-define(['knockout', 'durandal/system', 'durandal/app', 'body-params'], function (ko, system, app, bodyParams) {
+define(['knockout', 'durandal/system', 'durandal/app', 'body-params', 'app-params'], function (ko, system, app, bodyParams, appParams) {
     "use strict";
 
     var tasksVM = {        
         activate: activate,        
-        attached: viewAttached,
+        attached: viewAttached
     };
 
     return tasksVM;
 
     function activate() {
+        var self = this;
+        
             //add body class
         bodyParams.defineBodyClass('tasks');    
     };

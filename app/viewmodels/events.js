@@ -40,19 +40,19 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             url  : 'https://www.mockaroo.com/f4f40890/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
-                accoundCode: appParams.getLoggedInAccountCode()
+                accoundCode: appParams.getSessionInfo('userAcctCode')
             }
         }).then(function (response) {
             if(response[0].Events.length > 0){
-                var evtObj = {};
-                for(var i=0; i<response[0].Events.length; i++) {
+                for(var i=0; i<response[0].Events.length; i++) { 
+                    var evtObj = {};
                     evtObj.id = response[0].Events[i]['ID'];
                     evtObj.description = response[0].Events[i]['Description'];
                     evtObj.start_date = response[0].Events[i]['StartDate'];
                     evtObj.end_date = response[0].Events[i]['EndDate'];
                     evtObj.attendees = response[0].Events[i]['Attendance'];
                     evtObj.location = response[0].Events[i]['Location'];
-                    evtObj.url = '#home/' + response[0].Events[i]['ID'];
+                    evtObj.url = '#home/' + response[0].Events[i]['ID']; 
                     evtObj.selectEvent = function(data, event){
                         selectEvent(data, event);
                     }
@@ -61,14 +61,14 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
                         self.eventsList.push(evtObj);
                     } else {
                         self.pastEventsList.push(evtObj);
-                    }                    
+                    }                 
                 }
             } 
         });        
 
             //call promises
         return $.when(getEventsList).done(function(eventsData) {
-                    //add body class
+                //add body class
             bodyParams.defineBodyClass('events'); 
         });
     };
@@ -84,11 +84,11 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
     }
 
     function selectEvent(data, event) {
-        //var dfd = $.Deferred();
         var eventID = data['id'];
 
-        appParams.setCurrSelectedEvent(eventID);    
-        //dfd.resolve({'redirect': 'home/' + eventID});
+        appParams.setSelectedEvent(eventID);    
+        window.location.reload(true);
         router.navigate('#home/' + eventID, { replace: true, trigger: true });
+        
     }
 });

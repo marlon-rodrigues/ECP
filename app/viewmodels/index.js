@@ -4,6 +4,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
         router: router,
         activate: activate,
         attached: viewAttached,
+
         featuredImagesList: ko.observableArray([]),
 
         event_id: ko.observableArray([]),
@@ -46,7 +47,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             url  : 'https://www.mockaroo.com/2a832990/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
-                accoundCode: appParams.getLoggedInAccountCode()
+                accoundCode: appParams.getSessionInfo('userAcctCode')
             }
         }).then(function (response) {
             self.featuredImagesList = [];
@@ -64,7 +65,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             url  : 'https://www.mockaroo.com/72ea1070/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
-                accoundCode: appParams.getLoggedInAccountCode(),
+                accoundCode: appParams.getSessionInfo('userAcctCode'),
                 eventID: '123' //TODO - GET CORRECT EVENT ID
             }
         }).then(function (response) {
@@ -72,7 +73,6 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             if(response.length > 0){ 
                 var evtObj = {};
                 var evtDetailsObj = {};
-                var evtProposals = {};
 
                 self.eventConfigurationProposals = [];
 
@@ -91,6 +91,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
 
                 if(response[0].Proposal != null){
                     for(var i=0; i<response[0].Proposal.length; i++) {
+                        var evtProposals = {};
                         evtProposals.id = response[0].Proposal[0]['Id'];
                         evtProposals.name = response[0].Proposal[0]['Name'];
                         evtProposals.description = response[0].Proposal[0]['Description'];
@@ -109,7 +110,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             url  : 'https://www.mockaroo.com/60844db0/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
-                accoundCode: appParams.getLoggedInAccountCode(),
+                accoundCode: appParams.getSessionInfo('userAcctCode'),
                 eventID: '123' //TODO - GET CORRECT EVENT ID
             }
         }).then(function (response) {
@@ -117,13 +118,13 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             if(response[0].Articles.length > 0){
                 self.eventArticlesList = [];
 
-                var articlesObj = {};
                 var articlesToShow = response[0]['ArticlesToShow'];
 
                 self.articleSectionTitle = response[0]['SectionTitle'];
 
                 if(response[0].Articles != null) {
                     for(var i=0; i<(articlesToShow - 1); i++) {
+                        var articlesObj = {};
                         articlesObj.id = response[0].Articles[i]['Id'];
                         articlesObj.title = response[0].Articles[i]['Title'];
                         articlesObj.description = response[0].Articles[i]['Description'];
@@ -141,7 +142,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             url  : 'https://www.mockaroo.com/f36f1110/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
-                accoundCode: appParams.getLoggedInAccountCode(),
+                accoundCode: appParams.getSessionInfo('userAcctCode'),
                 eventID: '123' //TODO - GET CORRECT EVENT ID
             }
         }).then(function (response) {
@@ -149,11 +150,11 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             if(response[0].Documents.length > 0){
                 self.eventDocumentsList = [];
 
-                var documentsObj = {};
                 self.documentsSectionTitle = response[0]['SectionTitle'];
 
                 if(response[0].Documents != null) {
                     for(var i=0; i<response[0].Documents.length; i++) {
+                        var documentsObj = {};
                         documentsObj.id = response[0].Documents[i]['Id'];
                         documentsObj.name = response[0].Documents[i]['Name'];
                         documentsObj.description = response[0].Documents[i]['Description'];
@@ -172,7 +173,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             url  : 'https://www.mockaroo.com/a26d8580/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
-                accoundCode: appParams.getLoggedInAccountCode(),
+                accoundCode: appParams.getSessionInfo('userAcctCode'),
                 eventID: '123' //TODO - GET CORRECT EVENT ID
             }
         }).then(function (response) {
@@ -180,11 +181,11 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             if(response[0].Images.length > 0){
                 self.eventImagesList = [];
 
-                var imagesObj = {};
                 self.imagesSectionTitle = response[0]['SectionTitle'];
 
                 if(response[0].Images != null) {
                     for(var i=0; i<response[0].Images.length; i++) {
+                        var imagesObj = {};
                         imagesObj.id = response[0].Images[i]['Id'];
                         imagesObj.title = response[0].Images[i]['Title'];
                         imagesObj.description = response[0].Images[i]['Description'];
@@ -203,7 +204,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             url  : 'https://www.mockaroo.com/3dc58aa0/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
-                accoundCode: appParams.getLoggedInAccountCode(),
+                accoundCode: appParams.getSessionInfo('userAcctCode'),
                 eventID: '123' //TODO - GET CORRECT EVENT ID
             }
         }).then(function (response) {
@@ -211,11 +212,11 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             if(response[0].Videos.length > 0){
                 self.eventVideosList = [];
 
-                var videosObj = {};
                 self.videosSectionTitle = response[0]['SectionTitle'];
 
                 if(response[0].Videos != null) {
                     for(var i=0; i<response[0].Videos.length; i++) {
+                        var videosObj = {};
                         videosObj.id = response[0].Videos[i]['Id'];
                         videosObj.title = response[0].Videos[i]['Title'];
                         videosObj.description = response[0].Videos[i]['Description'];
@@ -235,7 +236,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             url  : 'https://www.mockaroo.com/f8564280/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
-                accoundCode: appParams.getLoggedInAccountCode(),
+                accoundCode: appParams.getSessionInfo('userAcctCode'),
                 eventID: '123' //TODO - GET CORRECT EVENT ID
             }
         }).then(function (response) {
@@ -243,11 +244,11 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
             if(response[0].Testimonials.length > 0){
                 self.eventTestimonialsList = [];
 
-                var testimonialsObj = {};
                 self.testimonialsSectionTitle = response[0]['SectionTitle'];
 
                 if(response[0].Testimonials != null) {
                     for(var i=0; i<response[0].Testimonials.length; i++) {
+                        var testimonialsObj = {};
                         testimonialsObj.id = response[0].Testimonials[i]['Id'];
                         testimonialsObj.title = response[0].Testimonials[i]['Title'];
                         testimonialsObj.description = response[0].Testimonials[i]['Description'];

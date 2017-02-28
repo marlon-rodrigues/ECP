@@ -1,18 +1,12 @@
-define(['durandal/system', 'plugins/router', "durandal/app"],function(system, router, app) {
+define(['durandal/system', 'plugins/router', "durandal/app", "authenticate"],function(system, router, app, authentication) {
 
   var APP_ERR = '';
   var redirectToEventsPage = false;
-  var loggedInUser = '';
-  var loggedInAccountCode = '';
   var arrUserEvents = [];
-  var currSelectedEvent = '';
-
+  
   return {
      getUserEvents: function() {
      	return getUserEvents();
-     },
-     getUserEventsArray() {
-     	return arrUserEvents;
      },
 
      getredirectToEvents: function() {
@@ -22,35 +16,17 @@ define(['durandal/system', 'plugins/router', "durandal/app"],function(system, ro
         redirectToEventsPage = false;
      },
      
-     getLoggedInUser: function() {
-     	return loggedInUser;
+     getSessionInfo: function(sessionVariable) {
+        return getSessionInfo(sessionVariable);
      },
-     setLoggedInUser: function(userName) {
-     	loggedInUser = userName;
+     setSelectedEvent: function(eventID) {
+        localStorage.ECP_SELECT_EVENT = eventID;
      },
-
-     getLoggedInAccountCode: function() {
-     	return getLoggedInAccountCode();
-     },
-     setLoggedInAccountCode: function(accountCode) {
-     	loggedInAccountCode = accountCode;
-     },
-
-     getCurrSelectedEvent: function() {
-      return currSelectedEvent;
-     },
-     setCurrSelectedEvent: function(eventID) {
-      currSelectedEvent = eventID;
-     },     
 
      callError: function() {
      	return APP_ERR;
      }     
   };
-
-  function getLoggedInAccountCode() {
-	return loggedInAccountCode;
-  }
 
   function getUserEvents() { 
 	var self = this;
@@ -60,7 +36,7 @@ define(['durandal/system', 'plugins/router', "durandal/app"],function(system, ro
         url  : 'https://www.mockaroo.com/964feae0/download?count=1&key=f8ade920',
         type : 'POST',
         data : {
-           accountCode: getLoggedInAccountCode()
+           accountCode: getSessionInfo('userAcctCode')
         }
     }).then(function(userData){ 
     		//assign events to app params
@@ -75,6 +51,28 @@ define(['durandal/system', 'plugins/router', "durandal/app"],function(system, ro
     }, function (jqXHR, textStatus, errorThrown) {
         self.APP_ERR = 'An error has occured, please refresh the page and try again in a little while. If the error persists, please contact the system administrator. (' + textStatus + ':' + errorThrown + ')'; 
     });
+  }
+
+  function getSessionInfo(sessionVariable) {
+    if(sessionVariable == 'userName') {
+      if(localStorage.ECP_USER_NAME) {
+        return localStorage.ECP_USER_NAME;
+      } else {
+        return null;
+      }
+    } else if (sessionVariable == 'userAcctCode') {
+      if(localStorage.ECP_ACCT_CODE) {
+        return localStorage.ECP_ACCT_CODE;
+      } else {
+        return null;
+      }
+    } else if (sessionVariable == 'selectedEvent') { 
+      if(localStorage.ECP_SELECT_EVENT) {
+        return localStorage.ECP_SELECT_EVENT;
+      } else {
+        return null;
+      }
+    }
   }
 
 });

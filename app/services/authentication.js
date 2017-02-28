@@ -23,7 +23,7 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'app-params', 'mome
         var self = this;
         // do authenticate for login credentials (e.g for retrieve auth token)
         return $.ajax({
-            url  : 'https://www.mockaroo.com/7c71d500/download?count=1&key=f8ade920',
+            url  : 'https://www.mockaroo.com/7c71d500/download?count=1&key=77af63b0',
             type : 'POST',
             data : {
                username: username,
@@ -39,9 +39,7 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'app-params', 'mome
                 // on success, stored token and set root to shell
               storeToken(token);
 
-                //set the logged in username and user code
-              appParams.setLoggedInUser("Marlon");
-              appParams.setLoggedInAccountCode("X0123456");
+              storeUserInfo("Marlon", "X0123456");
 
                 // Set root to shell
               app.setRoot('viewmodels/shell');
@@ -63,6 +61,9 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'app-params', 'mome
      logout: function() {
           // reset token
         resetToken(); 
+
+          //reset user info
+        resetUserInfo();
 
           // refresh window - which makes the app start from scratch
           // and since there is no token, it will take the user back 
@@ -103,4 +104,16 @@ define(['durandal/system', 'plugins/router', "durandal/app", 'app-params', 'mome
       localStorage.removeItem('ECP_TOKEN_EXP');
     }
   }
+
+  function storeUserInfo(username, acct_code) {
+    localStorage.ECP_USER_NAME = username;
+    localStorage.ECP_ACCT_CODE = acct_code;
+  }
+
+  function resetUserInfo() {
+    localStorage.removeItem('ECP_USER_NAME');
+    localStorage.removeItem('ECP_ACCT_CODE');
+    localStorage.removeItem('ECP_SELECT_EVENT');
+  }
+
 });
