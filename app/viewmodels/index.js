@@ -184,7 +184,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
                 self.imagesSectionTitle = response[0]['SectionTitle'];
 
                 if(response[0].Images != null) {
-                    for(var i=0; i<response[0].Images.length; i++) {
+                    for(var i=0; i<3; i++) {
                         var imagesObj = {};
                         imagesObj.id = response[0].Images[i]['Id'];
                         imagesObj.title = response[0].Images[i]['Title'];
@@ -215,7 +215,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
                 self.videosSectionTitle = response[0]['SectionTitle'];
 
                 if(response[0].Videos != null) {
-                    for(var i=0; i<response[0].Videos.length; i++) {
+                    for(var i=0; i<3; i++) {
                         var videosObj = {};
                         videosObj.id = response[0].Videos[i]['Id'];
                         videosObj.title = response[0].Videos[i]['Title'];
