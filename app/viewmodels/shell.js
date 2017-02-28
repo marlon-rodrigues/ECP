@@ -1,4 +1,4 @@
-define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], function (router, app, auth) {
+define(['durandal/system', 'plugins/router', "durandal/app", 'authenticate', 'body-params', 'app-params', 'match-height'], function (system, router, app, auth, bodyParams, appParams) {
 
     router.guardRoute = function(routeInfo, params, instance){ 
             //array with pages that can be accessed without credentials
@@ -16,21 +16,22 @@ define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], funct
 
         activate: function () {
             router.map([
-            	{ route: ['', 'home'], moduleId: 'viewmodels/index', title: "Home", nav: true },
-            	{ route: 'tasks', moduleId: 'viewmodels/tasks', title: "Tasks", nav: true },
-            	{ route: 'documents', moduleId: 'viewmodels/documents', title: "Documents", nav: true },
-            	{ route: 'contacts', moduleId: 'viewmodels/contacts', title: "Contacts", nav: true },
-                { route: 'events', moduleId: 'viewmodels/events', title: "Events", nav: true },
-                { route: 'profile', moduleId: 'viewmodels/profile', title: "Profile", nav: true },
-                { route: 'manage-users', moduleId: 'viewmodels/manage-users', title: "Manage Users", nav: true },
-                { route: 'notifications', moduleId: 'viewmodels/notifications', title: "Notifications", nav: true },
-                { route: 'all-articles', moduleId: 'viewmodels/all-articles', title: "All Articles", nav: true },
-                { route: 'all-images', moduleId: 'viewmodels/all-images', title: "All Images", nav: true },
-                { route: 'all-videos', moduleId: 'viewmodels/all-videos', title: "All Videos", nav: true }
+                { route: ['', 'events'], moduleId: 'viewmodels/events', title: "Events", nav: true }, //idx 0
+                { route: 'home/:eventID', moduleId: 'viewmodels/index', title: "Home", nav: true }, //idx 1
+            	{ route: 'tasks/:eventID', moduleId: 'viewmodels/tasks', title: "Tasks", nav: true }, //idx 2
+            	{ route: 'documents/:eventID', moduleId: 'viewmodels/documents', title: "Documents", nav: true }, //idx 3
+            	{ route: 'contacts/:eventID', moduleId: 'viewmodels/contacts', title: "Contacts", nav: true }, //idx 4
+                { route: 'profile/:eventID', moduleId: 'viewmodels/profile', title: "Profile", nav: true }, //idx 5
+                { route: 'manage-users/:eventID', moduleId: 'viewmodels/manage-users', title: "Manage Users", nav: true }, //idx 6
+                { route: 'notifications/:eventID', moduleId: 'viewmodels/notifications', title: "Notifications", nav: true }, //idx 7
+                { route: 'all-articles/:eventID', moduleId: 'viewmodels/all-articles', title: "All Articles", nav: true }, //idx 8
+                { route: 'all-images/:eventID', moduleId: 'viewmodels/all-images', title: "All Images", nav: true }, //idx 9
+                { route: 'all-videos/:eventID', moduleId: 'viewmodels/all-videos', title: "All Videos", nav: true } //idx 10
             ]).buildNavigationModel();
             
             //return router.activate({ pushState: true }); //use pushState to avoid the hash(#) in the URL
-            return router.activate(); //use pushState to avoid the hash(#) in the URL
+            //return router.activate(); //use pushState to avoid the hash(#) in the URL
+            router.activate(); //use pushState to avoid the hash(#) in the URL
         },
 
         attached: function(view) {
@@ -41,25 +42,19 @@ define(['plugins/router', "durandal/app", 'authenticate', 'match-height'], funct
 		    $('.dropdown').on('hide.bs.dropdown', function() {
 		        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
 		    });
-
-            $('.navbar-header a, .primary.nav.navbar-nav a').click(function(event) {
-                var $this = $(this);
-                $('.navbar-header a, .nav.navbar-nav a').removeClass('active');
-                $this.addClass('active');
-            });
 		    /***** End bootstrap sliding dropdowns *****/
 
 		    /**** When heights need to match and flexbox not an option, add a class
 		    or 'match-me' to both elements ****/
 		    $('.match-me').matchHeight();
-
-            
-            console.log("Logging is working.");
 		},
 
         logout: function() {
                 //log user out and redirects him to login page 
             auth.logout();
-        }
+        },
+
+        loggedInUser: appParams.getLoggedInUser(),
+        currSelectedEvent: appParams.getCurrSelectedEvent()
     };
 });
