@@ -123,7 +123,7 @@ define(['knockout', 'plugins/router', 'durandal/system', 'durandal/app', 'body-p
                 self.articleSectionTitle = response[0]['SectionTitle'];
 
                 if(response[0].Articles != null) {
-                    for(var i=0; i<(articlesToShow - 1); i++) {
+                    for(var i=0; i<(articlesToShow); i++) {
                         var articlesObj = {};
                         articlesObj.id = response[0].Articles[i]['Id'];
                         articlesObj.title = response[0].Articles[i]['Title'];
