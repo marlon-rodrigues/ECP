@@ -85,7 +85,7 @@
                     <h2 data-bind="text: imagesSectionTitle"></h2>
                     <div class="row" data-bind="foreach: eventImagesList">
                         <div class="col-sm-4 match-images">
-                            <a class="fancybox-media" data-bind="attr: { attr: url }"><img data-bind="attr: { src: url }" alt=""></a>
+                            <a data-bind="attr: { href: url }"><img data-bind="attr: { src: url }" alt=""></a>
                             <h3 data-bind="text: title"></h3>
                             <p data-bind="text: description"></p>
                         </div>
@@ -98,7 +98,7 @@
                     <h2 data-bind="text: videosSectionTitle"></h2>
                     <div class="row" data-bind="foreach: eventVideosList">
                         <div class="col-sm-4  match-videos">
-                            <a class="video fancybox-media" data-bind="attr: { attr: url }"><img src="images/imgVideo1.jpg" alt=""></a>
+                            <a class="video" data-bind="attr: { attr: url }"><img src="images/imgVideo1.jpg" alt=""></a>
                             <h3 data-bind="text: title"></h3>
                             <p data-bind="text: description"></p>
                         </div>
