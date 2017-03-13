@@ -44,8 +44,9 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap', 
         // Look for partial views in a 'views' folder in the root.
         viewLocator.useConvention();
 
-        // Show the app by setting the root view model for our application with a transition.
-        //app.setRoot('viewmodels/shell');
+        // Show the app by setting the root view model for our application with a transition. 
+        // Before we check if the user is logged in. If user is not logged in we set the app root
+        // at the service level.
         auth.init().then(function(data) {
             // When successfully authenticate, set the root to shell 
             app.setRoot('viewmodels/shell');
